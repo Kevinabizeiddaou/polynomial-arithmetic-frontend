@@ -74,15 +74,15 @@ Description of Files
 1. Home Page (index.html)
 
 Overview:
-. Introduces the tool with a clean hero section.
-. Explains the key features with images and descriptions.
+- Introduces the tool with a clean hero section.
+- Explains the key features with images and descriptions.
 
 2. About Page (about.html)
 
 Purpose:
-. Explains what 𝐺𝐹(2^𝑚) is and why it’s useful.
-. Provides educational information for users unfamiliar with the concept.
-. Operations Page (operations.html)
+- Explains what 𝐺𝐹(2^𝑚) is and why it’s useful.
+- Provides educational information for users unfamiliar with the concept.
+- Operations Page (operations.html)
 
 ## Steps to Use:
 1. Select a value for m for 𝐺𝐹(2^𝑚) from the dropdown.
@@ -90,16 +90,14 @@ Purpose:
 3. Click the appropriate operation button:
    Add, Subtract, Multiply, Divide: Perform basic arithmetic.
 
-. Modulo Reduce: Perform modulo reduction.
-. Find Inverse: Find the inverse of a polynomial.
+- Modulo Reduce: Perform modulo reduction.
+- Find Inverse: Find the inverse of a polynomial.
 
 The result will appear in the Result section below the buttons.
 
 ## Technologies Used
-HTML5: For the structure and layout of the pages.
-
-CSS3: For styling, responsiveness, and animations.
-
-JavaScript: For interactivity and handling operations dynamically.
+- HTML5: For the structure and layout of the pages.
+- CSS3: For styling, responsiveness, and animations.
+- JavaScript: For interactivity and handling operations dynamically.
 
 Contributors
