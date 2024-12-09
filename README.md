@@ -31,17 +31,7 @@ A modern and interactive web application for performing polynomial arithmetic op
 - [Contributing](#contributing)
 - [License](#license)
 
----
 
-## Demo
-
-![Hero Section Preview](path/to/hero-section-image.jpg)  
-_A preview of the Hero Section from the website._
-
-### Live Preview
-You can view the live version of this project at: **[Polynomial Arithmetic Tool](#)** (Replace with your deployment link)
-
----
 
 ## Installation
 
