@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="operations.html" class="active">Operations</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Operations Section -->
+    <section class="operations">
+        <h2>Perform Polynomial Arithmetic</h2>
+        <label for="select-m">Select GF(2^m):</label>
+        <select id="select-m">
+            <option value="163">163</option>
+            <option value="233">233</option>
+            <option value="239">239</option>
+            <option value="283">283</option>
+            <option value="409">409</option>
+            <option value="571">571</option>
+        </select>
+
+        <div class="inputs">
+            <label for="poly1">Polynomial 1:</label>
+            <input type="text" id="poly1" placeholder="Enter Polynomial 1">
+
+            <label for="poly2">Polynomial 2 (Optional):</label>
+            <input type="text" id="poly2" placeholder="Enter Polynomial 2">
+        </div>
+
+        <div class="operation-buttons">
+            <button onclick="performOperation('add')">Add</button>
+            <button onclick="performOperation('subtract')">Subtract</button>
+            <button onclick="performOperation('multiply')">Multiply</button>
+            <button onclick="performOperation('divide')">Divide</button>
+            <button onclick="performOperation('mod')">Modulo Reduce</button>
+            <button onclick="performOperation('inverse')">Find Inverse</button>
+        </div>
+
+        <div id="result">
+            <h3>Result:</h3>
+            <p id="result-text">Your result will appear here.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Polynomial Arithmetic Tool. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

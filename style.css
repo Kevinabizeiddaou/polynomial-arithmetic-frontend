@@ -1,0 +1,316 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background: #4caf50;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: #357a38;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background: #e9f7ef;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.hero img {
+    flex: 1;
+    max-width: 50%; /* Makes the image smaller (50% of the container width) */
+    height: 300px; /* Ensures proper scaling */
+    border-radius: 20px;
+}
+/* Features Section */
+.features {
+    padding: 50px 20px;
+    background: #fff;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+    color: #333;
+}
+
+.feature-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: calc(33.333% - 20px); /* Adjusts for 3 cards per row */
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #333;
+    color: white;
+    padding: 15px 0;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+/* About Section */
+.about {
+    padding: 40px 20px;
+    background: #f4f4f4; /* Light background for contrast */
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-content {
+    flex: 1;
+    max-width: 600px; /* Limits the text width */
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.about-content h2 {
+    font-size: 2rem;
+    color: #4caf50;
+    margin-bottom: 15px;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.about img {
+    flex: 1;
+    max-width: 30%; /* Smaller image size */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+}
+
+/* Responsive About Section */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+    }
+
+    .about img {
+        max-width: 70%; /* Larger image for smaller screens */
+        margin-bottom: 20px; /* Adds spacing below the image */
+    }
+
+    .about-content {
+        text-align: center;
+    }
+}
+
+
+/* Operations Page */
+.operations {
+    padding: 50px 20px;
+    background: #f4f4f4;
+    text-align: center;
+}
+
+.operations h2 {
+    font-size: 2.5rem;
+    color: #4caf50;
+    margin-bottom: 30px;
+}
+
+.operations-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.operations-container label {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.operations-container input,
+.operations-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.operations-container input:focus,
+.operations-container select:focus {
+    border-color: #4caf50;
+    outline: none;
+}
+
+.operation-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.operation-buttons button {
+    flex: 1 1 calc(30% - 10px);
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.operation-buttons button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 30px;
+    padding: 20px;
+    background: #e9f7ef;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+    font-size: 1.2rem;
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .operations-container {
+        padding: 20px;
+    }
+
+    .operation-buttons {
+        flex-direction: column;
+    }
+
+    .operation-buttons button {
+        flex: 1 1 100%;
+    }
+
+    #result {
+        font-size: 1rem;
+    }
+}
