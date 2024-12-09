@@ -49,19 +49,25 @@ To run the project locally:
 
 ## File Structure
 /project
+
 ├── index.html        # The main landing page (Home)
+
 ├── about.html        # About page with details about GF(2^m)
+
 ├── operations.html   # Page for performing polynomial arithmetic operations
+
 ├── style.css         # Shared CSS for styling the website
+
 ├── script.js         # Shared JavaScript for handling operations and interactivity
+
 └── /images           # Folder for storing all images used in the project
 
 Description of Files
-. index.html: Contains the homepage with the hero section and key features.
-. about.html: Provides information about 𝐺𝐹(2^𝑚), its importance, and how the tool simplifies calculations.
-. operations.html: Includes the form and buttons for performing polynomial arithmetic operations.
-. style.css: Handles all styling, including layout, animations, and responsiveness.
-. script.js: Contains JavaScript logic for handling user inputs, performing operations, and updating results dynamically.
+1. index.html: Contains the homepage with the hero section and key features.
+2. about.html: Provides information about 𝐺𝐹(2^𝑚), its importance, and how the tool simplifies calculations.
+3. operations.html: Includes the form and buttons for performing polynomial arithmetic operations.
+4. style.css: Handles all styling, including layout, animations, and responsiveness.
+5. script.js: Contains JavaScript logic for handling user inputs, performing operations, and updating results dynamically.
 
 
 ## Usage
