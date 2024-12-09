@@ -23,7 +23,6 @@ A modern and interactive web application for performing polynomial arithmetic op
 
 ## Table of Contents
 
-- [Demo](#demo)
 - [Installation](#installation)
 - [File Structure](#file-structure)
 - [Usage](#usage)
