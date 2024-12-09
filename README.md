@@ -100,3 +100,4 @@ The result will appear in the Result section below the buttons.
 - JavaScript: For interactivity and handling operations dynamically.
 
 Contributors
+- [Rayan Fakhreddine](github.com/Rayan28461)
