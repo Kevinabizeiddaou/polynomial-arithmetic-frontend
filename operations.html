@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operations</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -21,6 +22,7 @@
     <!-- Operations Section -->
     <section class="operations">
         <h2>Perform Polynomial Arithmetic</h2>
+        <div class="operations-container">
         <label for="select-m">Select GF(2^m):</label>
         <select id="select-m">
             <option value="8">8</option>
@@ -57,7 +59,24 @@
         </div>
 
         <div class="operation-buttons">
+            
             <button id="add-btn">Add</button>
+
+            <!-- <script>
+                // Function to perform an operation
+                function performOperation(operation) {
+                    console.log('Performing operation:', operation);
+                }
+
+                // An example "add" function
+                const add = () => {
+                    console.log('Adding numbers');
+                };
+
+                // Adding the event listener
+                document.getElementById('add-btn').addEventListener('click', () => performOperation(add));
+            </script> -->
+            
             <button id="subtract-btn">Subtract</button>
             <button id="multiply-btn">Multiply</button>
             <button id="divide-btn">Divide</button>
@@ -69,6 +88,9 @@
             <h3>Result:</h3>
             <p id="result-text">Your result will appear here.</p>
         </div>
+    
+    </div>
+
     </section>
 
     <!-- Footer -->
