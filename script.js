@@ -1,3 +1,6 @@
+import { performAddition } from './apiServiceAddition.js';
+import { performDivision } from './apiServiceDivision.js';
+
 function showTab(tabId) {
     const tabs = document.querySelectorAll('.tab-content');
     tabs.forEach(tab => tab.classList.remove('active'));
@@ -8,10 +11,11 @@ function showTab(tabId) {
     document.querySelector(`nav a[href="#${tabId}"]`).classList.add('active');
 }
 
-function performOperation(operation) {
+async function performOperation(operation) {
     const m = document.getElementById('select-m').value;
     const poly1 = document.getElementById('poly1').value;
     const poly2 = document.getElementById('poly2').value;
+    // console.log(operation, m, poly1, poly2);
 
     if (!poly1) {
         document.getElementById('result-text').textContent = "Please enter Polynomial 1.";
@@ -23,31 +27,53 @@ function performOperation(operation) {
         return;
     }
 
-    let result;
-    switch (operation) {
-        case 'add':
-            result = `Adding ${poly1} and ${poly2} in GF(2^${m}).`;
-            break;
-        case 'subtract':
-            result = `Subtracting ${poly2} from ${poly1} in GF(2^${m}).`;
-            break;
-        case 'multiply':
-            result = `Multiplying ${poly1} and ${poly2} in GF(2^${m}).`;
-            break;
-        case 'divide':
-            result = `Dividing ${poly1} by ${poly2} in GF(2^${m}).`;
-            break;
-        case 'mod':
-            result = `Modulo reduction of ${poly1} in GF(2^${m}).`;
-            break;
-        case 'inverse':
-            result = `Finding the inverse of ${poly1} in GF(2^${m}).`;
-            break;
-        default:
-            result = "Invalid operation.";
-    }
+    const payload = {
+        poly1,
+        poly2: operation === 'inverse' || operation === 'mod' ? null : poly2,
+        input_type: document.getElementById('input-type').value,
+        output_type: document.getElementById('output-type').value,
+        m: parseInt(m),
+    };
 
-    document.getElementById('result-text').textContent = result;
+    try {
+        let result;
+        switch (operation) {
+            case 'add':
+                const additionResult = await performAddition(payload);
+                result = `Result: ${additionResult.result}`;
+                break;
+            case 'subtract':
+                result = `Subtracting ${poly2} from ${poly1} in GF(2^${m}).`;
+                break;
+            case 'multiply':
+                result = `Multiplying ${poly1} and ${poly2} in GF(2^${m}).`;
+                break;
+            case 'divide':
+                const divisionResult = await performDivision(payload);
+                result = `Result: ${divisionResult.result}`;
+                break;
+            case 'mod':
+                result = `Modulo reduction of ${poly1} in GF(2^${m}).`;
+                break;
+            case 'inverse':
+                result = `Finding the inverse of ${poly1} in GF(2^${m}).`;
+                break;
+            default:
+                result = "Invalid operation.";
+        }
+
+        document.getElementById('result-text').textContent = result;
+    } catch (error) {
+        document.getElementById('result-text').textContent = `Error: ${error.message}`;
+    }
 }
 
+window.performOperation = performOperation;
 
+// Add event listeners to operation buttons
+document.getElementById('add-btn').addEventListener('click', () => performOperation('add'));
+document.getElementById('subtract-btn').addEventListener('click', () => performOperation('subtract'));
+document.getElementById('multiply-btn').addEventListener('click', () => performOperation('multiply'));
+document.getElementById('divide-btn').addEventListener('click', () => performOperation('divide'));
+document.getElementById('mod-btn').addEventListener('click', () => performOperation('mod'));
+document.getElementById('inverse-btn').addEventListener('click', () => performOperation('inverse'));

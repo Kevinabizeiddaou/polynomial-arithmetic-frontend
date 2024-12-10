@@ -23,6 +23,7 @@
         <h2>Perform Polynomial Arithmetic</h2>
         <label for="select-m">Select GF(2^m):</label>
         <select id="select-m">
+            <option value="8">8</option>
             <option value="163">163</option>
             <option value="233">233</option>
             <option value="239">239</option>
@@ -39,13 +40,29 @@
             <input type="text" id="poly2" placeholder="Enter Polynomial 2">
         </div>
 
+        <div class="input type">
+            <label for="input-type">Input Type:</label>
+            <select id="input-type">
+                <option value="hexadecimal">Hexadecimal</option>
+                <option value="binary">Binary</option>
+            </select>
+        </div>
+
+        <div class="output-type">
+            <label for="output-type">Output Type:</label>
+            <select id="output-type">
+                <option value="hexadecimal">Hexadecimal</option>
+                <option value="binary">Binary</option>
+            </select>
+        </div>
+
         <div class="operation-buttons">
-            <button onclick="performOperation('add')">Add</button>
-            <button onclick="performOperation('subtract')">Subtract</button>
-            <button onclick="performOperation('multiply')">Multiply</button>
-            <button onclick="performOperation('divide')">Divide</button>
-            <button onclick="performOperation('mod')">Modulo Reduce</button>
-            <button onclick="performOperation('inverse')">Find Inverse</button>
+            <button id="add-btn">Add</button>
+            <button id="subtract-btn">Subtract</button>
+            <button id="multiply-btn">Multiply</button>
+            <button id="divide-btn">Divide</button>
+            <button id="mod-btn">Modulo Reduce</button>
+            <button id="inverse-btn">Find Inverse</button>
         </div>
 
         <div id="result">
@@ -59,6 +76,6 @@
         <p>&copy; 2024 Polynomial Arithmetic Tool. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script> <!-- Ensure type="module" is used -->
 </body>
 </html>
