@@ -15,6 +15,51 @@ function showTab(tabId) {
     document.querySelector(`nav a[href="#${tabId}"]`).classList.add('active');
 }
 
+// async function performOperation(operation) {
+
+//     const m = document.getElementById('select-m').value;
+//     const poly1 = document.getElementById('poly1').value.trim();
+//     const poly2 = document.getElementById('poly2').value.trim();
+//     const inputType = document.getElementById('input-type').value;
+//     const outputType = document.getElementById('output-type').value;
+
+//     // Validate input
+//     if (!poly1) {
+//         document.getElementById('result-text').textContent = "Please enter Polynomial 1.";
+//         return;
+//     }
+//     if (!poly2 && operation !== 'inverse' && operation !== 'mod') {
+//         document.getElementById('result-text').textContent = "Please enter Polynomial 2 for this operation.";
+//         return;
+//     }
+
+//     // Construct payload
+//     const payload = {
+//         poly1,
+//         poly2: operation === 'inverse' || operation === 'mod' ? null : poly2,
+//         input_type: inputType,
+//         output_type: outputType,
+//         m: parseInt(m, 10),
+//     };
+
+//     // try {
+//         // Perform the operation
+//         const result = await executeOperation(operation, payload);
+
+//         // Update the result text
+//         document.getElementById('result-text').textContent = `Result: ${result}`;
+//         console.log("Operation triggered:", operation);
+//         console.log("Payload sent:", payload);
+//         console.log("Result received:", result);
+
+//     // } catch (error) {
+//     //     // Handle errors and display the message
+//     //     document.getElementById('result-text').textContent = `Error: ${error.message}`;
+//     //     console.error(`Error during ${operation}:`, error);
+//     // }
+// }
+
+
 async function performOperation(operation) {
     const m = document.getElementById('select-m').value;
     const poly1 = document.getElementById('poly1').value.trim();
@@ -22,41 +67,41 @@ async function performOperation(operation) {
     const inputType = document.getElementById('input-type').value;
     const outputType = document.getElementById('output-type').value;
 
-    // Validate input
+    // Validate inputs
     if (!poly1) {
         document.getElementById('result-text').textContent = "Please enter Polynomial 1.";
         return;
     }
     if (!poly2 && operation !== 'inverse' && operation !== 'mod') {
-        document.getElementById('result-text').textContent = "Please enter Polynomial 2 for this operation.";
+        document.getElementById('result-text').textContent = "Please enter Polynomial 2.";
         return;
     }
 
-    // Construct payload
-    const payload = {
-        poly1,
-        poly2: operation === 'inverse' || operation === 'mod' ? null : poly2,
-        input_type: inputType,
-        output_type: outputType,
-        m: parseInt(m, 10),
-    };
+    const payload = { poly1, poly2, input_type: inputType, output_type: outputType, m: parseInt(m, 10) };
 
-    // try {
-        // Perform the operation
-        const result = await executeOperation(operation, payload);
+    try {
+        let result;
+        switch (operation) {
+            case 'add':
+                const additionResult = await performAddition(payload);
+                result = additionResult.result; // Extract 'result' from the response
+                break;
+            // Add other operations (subtract, multiply, etc.) here
+            default:
+                result = "Invalid operation.";
+        }
 
-        // Update the result text
+        if (!result) {
+            throw new Error("No result returned from the operation.");
+        }
+
         document.getElementById('result-text').textContent = `Result: ${result}`;
-        console.log("Operation triggered:", operation);
-        console.log("Payload sent:", payload);
-        console.log("Result received:", result);
-
-    // } catch (error) {
-    //     // Handle errors and display the message
-    //     document.getElementById('result-text').textContent = `Error: ${error.message}`;
-    //     console.error(`Error during ${operation}:`, error);
-    // }
+    } catch (error) {
+        document.getElementById('result-text').textContent = `Error: ${error.message}`;
+        console.error("Error during operation:", error);
+    }
 }
+
 
 // Helper function to execute the operation
 async function executeOperation(operation, payload) {

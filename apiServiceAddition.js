@@ -3,32 +3,59 @@ import axios from 'https://cdn.jsdelivr.net/npm/axios@1.4.0/+esm'; // ESM-compat
 const BASE_URL = "http://127.0.0.1:8000"; 
 const ADDITION_ENDPOINT = `${BASE_URL}/operations/addition`;
 
+// export async function performAddition(payload) {
+//     try {
+//         // Validate payload before making the request
+//         validatePayload(payload);
+
+//         // Make the POST request to the addition endpoint
+//         const response = await axios.post(ADDITION_ENDPOINT, {
+//             poly1: payload.poly1, 
+//             poly2: payload.poly2, 
+//             input_type: payload.input_type, 
+//             output_type: payload.output_type, 
+//             m: payload.m
+//         });
+
+//         console.log("Backend response:", response);
+
+//         // Ensure the response structure is correct
+//         if (!response.data || typeof response.data.result === 'undefined') {
+//             throw new Error("Invalid response format from the server.");
+//         }
+
+//         return response.data; // Return the response data
+//     } catch (error) {
+//         // Check if the error is from Axios or the server
+//         if (error.response) {
+//             throw new Error(`Server Error: ${error.response.data?.message || 'Unknown error from the server.'}`);
+//         }
+//         throw new Error(`Network Error: ${error.message}`);
+//     }
+// }
+
 export async function performAddition(payload) {
     try {
-        // Validate payload before making the request
-        validatePayload(payload);
-
-        // Make the POST request to the addition endpoint
         const response = await axios.post(ADDITION_ENDPOINT, {
-            poly1: payload.poly1, 
-            poly2: payload.poly2, 
-            input_type: payload.input_type, 
-            output_type: payload.output_type, 
+            poly1: payload.poly1,
+            poly2: payload.poly2,
+            input_type: payload.input_type,
+            output_type: payload.output_type,
             m: payload.m
         });
 
-        // Ensure the response structure is correct
-        if (!response.data || typeof response.data.result === 'undefined') {
-            throw new Error("Invalid response format from the server.");
-        }
+        // Log the entire response to debug
+        console.log("Response from backend:", response);
 
-        return response.data; // Return the response data
-    } catch (error) {
-        // Check if the error is from Axios or the server
-        if (error.response) {
-            throw new Error(`Server Error: ${error.response.data?.message || 'Unknown error from the server.'}`);
+        // Validate the response structure
+        if (response.data && response.data.data && response.data.data.result) {
+            return response.data.data; // Return the nested 'data' object
+        } else {
+            throw new Error("Invalid response format: Result not found in data.");
         }
-        throw new Error(`Network Error: ${error.message}`);
+    } catch (error) {
+        console.error("Error in performAddition:", error);
+        throw new Error(`Network or Parsing Error: ${error.message}`);
     }
 }
 
