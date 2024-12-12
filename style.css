@@ -292,8 +292,11 @@ footer {
     border: 1px solid #ddd;
     border-radius: 5px;
     color: #333;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: left;
+    max-height: 200px; /* Limit the height of the box */
+    overflow: auto; /* Enable scrolling if content overflows */
+    word-wrap: break-word; /* Ensure long words or values break into new lines */
 }
 
 /* Responsive Design */
