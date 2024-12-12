@@ -28,46 +28,24 @@ A modern and interactive web application for performing polynomial arithmetic op
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
-- [License](#license)
-
 
 
 ## Installation
 
 To run the project locally:
-
-1. Clone the repository:
+1. Make sure you have Python 3.12.x installed on your machine.
+2. Clone the repository:
    ```bash
    git clone https://github.com/your-username/polynomial-arithmetic-tool.git
 
-2. Navigate to the project folder:
+3. Navigate to the project folder:
    ```bash
    cd polynomial-arithmetic-tool
 
-3. Open the index.html file in a browser to view the website.
-
-## File Structure
-/project
-
-├── index.html        # The main landing page (Home)
-
-├── about.html        # About page with details about GF(2^m)
-
-├── operations.html   # Page for performing polynomial arithmetic operations
-
-├── style.css         # Shared CSS for styling the website
-
-├── script.js         # Shared JavaScript for handling operations and interactivity
-
-└── /images           # Folder for storing all images used in the project
-
-Description of Files
-1. index.html: Contains the homepage with the hero section and key features.
-2. about.html: Provides information about 𝐺𝐹(2^𝑚), its importance, and how the tool simplifies calculations.
-3. operations.html: Includes the form and buttons for performing polynomial arithmetic operations.
-4. style.css: Handles all styling, including layout, animations, and responsiveness.
-5. script.js: Contains JavaScript logic for handling user inputs, performing operations, and updating results dynamically.
-
+4. Run the frontend:
+   ```bash
+   python -m http.server 8001
+   ```
 
 ## Usage
 1. Home Page (index.html)
