@@ -101,3 +101,5 @@ The result will appear in the Result section below the buttons.
 
 Contributors
 - [Rayan Fakhreddine](github.com/Rayan28461)
+- [Kevin Abi Zeid Daou](github.com/Kevinabizeiddaou)
+- [Ahmad El Jazaerli](github.com/ahmadeljazaerli)
