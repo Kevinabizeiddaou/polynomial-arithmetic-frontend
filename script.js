@@ -8,6 +8,10 @@ import { performSubtraction } from './apiServiceSubtraction.js';
 
 
 async function performOperation(operation) {
+    
+    //Added line here
+    togglePolynomial2Box(operation);
+
     const m = document.getElementById('select-m').value;
     const poly1 = document.getElementById('poly1').value.trim();
     const poly2 = document.getElementById('poly2').value.trim();
@@ -70,6 +74,23 @@ async function performOperation(operation) {
 
 
 window.performOperation = performOperation;
+
+// Toggle visibility of Polynomial 2 box
+function togglePolynomial2Box(operation) {
+    const poly2Label = document.getElementById('poly2-label');
+    const poly2Input = document.getElementById('poly2');
+
+    if (operation === 'inverse') {
+        // Hide Polynomial 2 when finding the inverse
+        poly2Label.style.display = 'none';
+        poly2Input.style.display = 'none';
+    } else {
+        // Show Polynomial 2 for all other operations
+        poly2Label.style.display = 'block';
+        poly2Input.style.display = 'block';
+    }
+}
+
 
 // Add event listeners to operation buttons
 document.getElementById('add-btn').addEventListener('click', () => performOperation('add'));
